@@ -1,0 +1,34 @@
+.todo-input{
+    background-color: gold;
+    color: red;
+    height: 200px;
+}
+
+.todo-input input{
+   margin-left: 20px;
+   width: 20%;
+   height: 10%;
+}
+button{
+    background-color: darkgreen;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin-left: 15px;
+    border-radius: 8px;
+}
+.task-container{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    
+    color:white;
+}
+
+.task-container p{
+    background-color:tomato ;
+    width: 200px;
+    padding: 10px;
+}
