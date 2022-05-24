@@ -81,7 +81,7 @@ const Todos: FC = () => {
             <input type="text" value={task} name="task" onChange={handleChange} placeholder='enter your homework name'/>
             <p>Task Number</p>
             <input type="number" value={taskNo} onChange={handleChange}  placeholder='enter your home work no'/>
-           <button onClick={addTask}>Add Task</button>
+           <button onClick={addTask}>Add Task f</button>
            </div>
            </div>
             <div>
