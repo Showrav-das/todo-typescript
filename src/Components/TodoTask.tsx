@@ -2,7 +2,7 @@ import React from 'react';
 import { Task } from './Interface';
 
 
-interface props{
+interface props {
     task: Task;
     deleteTask(deleteTaskName: Number): void;
     updated(updateTask: string, updateNo: number): void;

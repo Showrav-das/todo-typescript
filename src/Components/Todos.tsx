@@ -1,21 +1,27 @@
-import React, {FC, useState} from 'react';
+import React, {FC, useEffect, useState} from 'react';
 import {Task} from './Interface';
 import TodoTask from './TodoTask';
 import './main.css';
+import { json } from 'stream/consumers';
 
 /*interface Task{
     taskName: string;
     taskNo: number;
 }*/
 
-const Todos:FC = () => {
+const Todos: FC = () => {
+    const initial = JSON.parse(localStorage.getItem("todo")||'');
     const [task, setTask] = useState<string>('');
     const [taskNo, setTaskNo] = useState<number>(0);
-    const [todo, setTodo] = useState<Task[]>([]);
+    const [todo, setTodo] = useState<Task[]>(initial);
+
+    useEffect(()=> {
+        localStorage.setItem("todo", JSON.stringify(todo));
+    },[todo])
    
     const handleChange = (e:React.ChangeEvent<HTMLInputElement>):void => {
         if (e.target.name === "task") {
-            setTask(e.target.value);
+            setTask(e.target.value); 
         }
         else {
             setTaskNo(Number(e.target.value));
@@ -30,8 +36,7 @@ const Todos:FC = () => {
             setTodo([...todo, newTodo]);
             setTask('');
             setTaskNo(0);
-        }  
-       
+        }       
     }
 
     const deleteTask = (deleteTaskName:Number):void => {
@@ -57,9 +62,10 @@ const Todos:FC = () => {
         todo.forEach(single => {
             //console.log(single);
             if (single.taskName === top) {
-                setTodo([single,...todo]);
-                const a = (todo.lastIndexOf(single) + 1);
+                setTodo([single, ...todo]);
+                const a = (todo.lastIndexOf(single));
                
+                
             }
             
         });
